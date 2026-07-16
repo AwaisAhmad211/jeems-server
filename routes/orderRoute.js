@@ -8,7 +8,7 @@ import {
   userOrders,
   userLastOrder,
 } from "../controllers/orderController.js";
-import { protect, restrictTo, isVerified } from "../middleware/auth.js";
+import { protect, restrictTo } from "../middleware/auth.js";
 
 const orderRouter = express.Router();
 
@@ -17,7 +17,7 @@ orderRouter.get("/list", protect, restrictTo("ADMIN"), allOrders);
 orderRouter.post("/status", protect, restrictTo("ADMIN"), updateStatus);
 
 // Payment features
-orderRouter.post("/place", protect, isVerified, placeOrder);
+orderRouter.post("/place", protect, placeOrder);
 orderRouter.post("/stripe", protect, placeOrderStripe);
 orderRouter.post("/razorpay", protect, placeOrderRazorpay);
 
