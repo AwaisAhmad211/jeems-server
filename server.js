@@ -93,7 +93,7 @@ app.get("/", (req, res) => {
 
   const statusInfo = {
     success: true,
-    brand: "Mahnoor Sahi",
+    brand: "Jeems",
     message: "Ecommerce API is fully operational",
     status: "Healthy",
     timestamp: formattedTime,
